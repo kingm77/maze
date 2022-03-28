@@ -1,11 +1,10 @@
 FROM gcc:latest
 
-
 WORKDIR /maze
-COPY .. ./
 
-WORKDIR /src
-
+COPY ./src/ ./src
+COPY ./maps/ ./maps
+WORKDIR ./src
 RUN make
 
-CMD ["./main"]
+ENTRYPOINT ./main ../maps/rect_05.map
